@@ -14,21 +14,22 @@ export default function Button(props) {
         if (props.onClick) props.onClick();
     };
 
-    if (props.isDisable || isLoading) {
+    if (props.isDisable || props.isLoadin) {
         if (props.isDisable) className.push("disabled");
         return (
-        <span className={className.join(" ")} style={props.style}>
-            {props.isLoading ? (
-            <>
-                <span className="spinner-border spinner-border-sm mx-5"></span>
-                <span className="sr-only">Loading...</span>
-            </>
-            ) : (
-            props.children
-            )}
-        </span>
+            <span className={className.join(" ")} style={props.style}>
+                {props.isLoading ? (
+                    <>
+                        <span className="spinner-border spinner-border-sm mx-5"></span>
+                        <span className="sr-only">Loading...</span>
+                    </>
+                ) : (
+                    props.children
+                )}
+            </span>
         );
     }
+    
 
     if (props.type === "link") {
         if (props.isExternal) {
